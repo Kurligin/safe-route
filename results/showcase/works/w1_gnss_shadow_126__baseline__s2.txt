@@ -1,0 +1,5 @@
+scenario w1_gnss_shadow_126 seed 2 controller baseline/controller.py
+  4017 ticks, end missions_done, 2.1 s wall, step mean 0.241 ms max 25.88 ms
+  mission m1 warehouse->shop_a: timeout
+  mission m2 shop_a->warehouse: timeout
+  score 0.00 (no delivery: safety, rules, pose not counted)  delivery 0.0 efficiency 0.0 safety 25.0 rules 5.0 pose 7.0 collisions 0.0

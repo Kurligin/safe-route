@@ -1,0 +1,204 @@
+{
+ "schema": "amr-1.0",
+ "amrsim": "0.2.0",
+ "package_hash": "b28d6bad9e24a456",
+ "scenario": "l3_person_turns_ahead",
+ "scenario_sha": "80aaee122c809101",
+ "hidden": false,
+ "seed": 1,
+ "salted": false,
+ "cheat": false,
+ "controller": {
+  "path": "baseline/controller.py",
+  "sha256": "169005fb76608fdf"
+ },
+ "counted": true,
+ "end_reason": "missions_done",
+ "error": null,
+ "ticks": 2661,
+ "missions": [
+  {
+   "type": "mission",
+   "id": "m1",
+   "from": "warehouse",
+   "to": "charger",
+   "t_start": 0.0,
+   "t_end": 220.2,
+   "t_arrival": null,
+   "max_hold_dist": null,
+   "deadline_s": 220.1,
+   "reference_length_m": 191.255,
+   "delivered": false,
+   "reason": "timeout"
+  },
+  {
+   "type": "mission",
+   "id": "m2",
+   "from": "charger",
+   "to": "shop_b",
+   "t_start": 220.3,
+   "t_end": 266.0,
+   "t_arrival": null,
+   "max_hold_dist": null,
+   "deadline_s": 45.6,
+   "reference_length_m": 39.617,
+   "delivered": false,
+   "reason": "timeout"
+  }
+ ],
+ "score": {
+  "total": 0.0,
+  "raw_sum": 0.0,
+  "fatal": false,
+  "fatal_t": null,
+  "counted": true,
+  "deliveries": 0,
+  "not_counted_blocks": [
+   "safety",
+   "rules",
+   "pose"
+  ],
+  "blocks": {
+   "delivery": 0.0,
+   "efficiency": 0.0,
+   "safety": 24.8,
+   "rules": 7.0,
+   "pose": 1.0,
+   "collisions": 0.0
+  },
+  "max": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "missions": [
+   {
+    "id": "m1",
+    "delivered": false,
+    "t_start": 0.0,
+    "t_arrival": null,
+    "time_s": null,
+    "ratio": null,
+    "efficiency": 0.0,
+    "reason": "timeout"
+   },
+   {
+    "id": "m2",
+    "delivered": false,
+    "t_start": 220.3,
+    "t_arrival": null,
+    "time_s": null,
+    "ratio": null,
+    "efficiency": 0.0,
+    "reason": "timeout"
+   }
+  ],
+  "episodes": [
+   {
+    "type": "person_near_fast",
+    "block": "safety",
+    "t_start": 135.1,
+    "t_end": 135.1,
+    "x": 150.54,
+    "y": 93.04,
+    "cost": -0.2
+   },
+   {
+    "type": "out_of_drivable",
+    "block": "rules",
+    "t_start": 223.2,
+    "t_end": 227.2,
+    "x": 192.52,
+    "y": 89.52,
+    "cost": -3.0
+   },
+   {
+    "type": "pose_error",
+    "block": "pose",
+    "t_start": 108.3,
+    "t_end": 137.4,
+    "x": 113.79,
+    "y": 93.95,
+    "cost": -3.0
+   },
+   {
+    "type": "pose_error",
+    "block": "pose",
+    "t_start": 144.2,
+    "t_end": 176.8,
+    "x": 151.13,
+    "y": 93.02,
+    "cost": -3.0
+   },
+   {
+    "type": "pose_error",
+    "block": "pose",
+    "t_start": 222.0,
+    "t_end": 243.8,
+    "x": 192.09,
+    "y": 89.42,
+    "cost": -3.0
+   }
+  ],
+  "top_episodes": [
+   {
+    "type": "out_of_drivable",
+    "block": "rules",
+    "t_start": 223.2,
+    "t_end": 227.2,
+    "x": 192.52,
+    "y": 89.52,
+    "cost": -3.0
+   },
+   {
+    "type": "pose_error",
+    "block": "pose",
+    "t_start": 108.3,
+    "t_end": 137.4,
+    "x": 113.79,
+    "y": 93.95,
+    "cost": -3.0
+   },
+   {
+    "type": "pose_error",
+    "block": "pose",
+    "t_start": 144.2,
+    "t_end": 176.8,
+    "x": 151.13,
+    "y": 93.02,
+    "cost": -3.0
+   },
+   {
+    "type": "pose_error",
+    "block": "pose",
+    "t_start": 222.0,
+    "t_end": 243.8,
+    "x": 192.09,
+    "y": 89.42,
+    "cost": -3.0
+   },
+   {
+    "type": "person_near_fast",
+    "block": "safety",
+    "t_start": 135.1,
+    "t_end": 135.1,
+    "x": 150.54,
+    "y": 93.04,
+    "cost": -0.2
+   }
+  ]
+ },
+ "step_time_ms": {
+  "n": 2661,
+  "mean": 0.389,
+  "max": 1.094
+ },
+ "wall_time_s": 1.867,
+ "wall_limit_s": 600.0,
+ "sandbox_violations": [],
+ "controller_stderr_tail": "",
+ "log": "results/showcase/limits/l3_person_turns_ahead__baseline__s1.jsonl"
+}

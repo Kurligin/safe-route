@@ -1,0 +1,128 @@
+{
+ "schema": "amr-1.0",
+ "amrsim": "0.2.0",
+ "package_hash": "b28d6bad9e24a456",
+ "scenario": "l2_person_by_pallet",
+ "scenario_sha": "d32c3956fbd379e1",
+ "hidden": false,
+ "seed": 2,
+ "salted": false,
+ "cheat": false,
+ "controller": {
+  "path": "controller.py",
+  "sha256": "11b8a0270cadc2b5"
+ },
+ "counted": true,
+ "end_reason": "missions_done",
+ "error": null,
+ "ticks": 2176,
+ "missions": [
+  {
+   "type": "mission",
+   "id": "m1",
+   "from": "warehouse",
+   "to": "charger",
+   "t_start": 0.0,
+   "t_end": 179.6,
+   "t_arrival": 178.7,
+   "max_hold_dist": 0.0093,
+   "deadline_s": 220.1,
+   "reference_length_m": 191.255,
+   "delivered": true,
+   "reason": "delivered"
+  },
+  {
+   "type": "mission",
+   "id": "m2",
+   "from": "charger",
+   "to": "shop_b",
+   "t_start": 179.7,
+   "t_end": 217.5,
+   "t_arrival": 216.6,
+   "max_hold_dist": 0.0158,
+   "deadline_s": 45.6,
+   "reference_length_m": 39.617,
+   "delivered": true,
+   "reason": "delivered"
+  }
+ ],
+ "score": {
+  "total": 86.24,
+  "raw_sum": 86.239,
+  "fatal": false,
+  "fatal_t": null,
+  "counted": true,
+  "deliveries": 2,
+  "not_counted_blocks": [],
+  "blocks": {
+   "delivery": 40.0,
+   "efficiency": 14.439,
+   "safety": 11.8,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "max": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "missions": [
+   {
+    "id": "m1",
+    "delivered": true,
+    "t_start": 0.0,
+    "t_arrival": 178.7,
+    "time_s": 178.7,
+    "ratio": 1.039,
+    "efficiency": 0.9609976209772295,
+    "reason": "delivered"
+   },
+   {
+    "id": "m2",
+    "delivered": true,
+    "t_start": 179.7,
+    "t_arrival": 216.6,
+    "time_s": 36.9,
+    "ratio": 1.0357,
+    "efficiency": 0.9642628164676779,
+    "reason": "delivered"
+   }
+  ],
+  "episodes": [
+   {
+    "type": "person_near_fast",
+    "block": "safety",
+    "t_start": 199.5,
+    "t_end": 206.0,
+    "x": 203.42,
+    "y": 93.48,
+    "cost": -13.2
+   }
+  ],
+  "top_episodes": [
+   {
+    "type": "person_near_fast",
+    "block": "safety",
+    "t_start": 199.5,
+    "t_end": 206.0,
+    "x": 203.42,
+    "y": 93.48,
+    "cost": -13.2
+   }
+  ]
+ },
+ "step_time_ms": {
+  "n": 2176,
+  "mean": 0.714,
+  "max": 2.906
+ },
+ "wall_time_s": 2.191,
+ "wall_limit_s": 600.0,
+ "sandbox_violations": [],
+ "controller_stderr_tail": "",
+ "log": "results/showcase/limits/l2_person_by_pallet__ours__s2.jsonl"
+}

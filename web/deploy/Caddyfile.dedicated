@@ -1,0 +1,9 @@
+# Системный Caddy выделенного сервера: /etc/caddy/Caddyfile
+msk-hac.rapira-cloud.ru, saferoute.rapira-cloud.ru {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:8098 {
+		transport http {
+			read_timeout 120s
+		}
+	}
+}

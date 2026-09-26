@@ -1,0 +1,5 @@
+scenario l4_canopy_two_inattentive seed 3 controller controller.py
+  2271 ticks, end missions_done, 2.6 s wall, step mean 0.794 ms max 2.329 ms
+  mission m1 warehouse->charger: delivered
+  mission m2 charger->shop_b: timeout
+  score 72.14  delivery 20.0 efficiency 7.1 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

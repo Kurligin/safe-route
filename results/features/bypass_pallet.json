@@ -1,0 +1,108 @@
+{
+ "schema": "amr-1.0",
+ "amrsim": "0.2.0",
+ "package_hash": "b28d6bad9e24a456",
+ "scenario": "stress_pallet_close_012_AWA",
+ "scenario_sha": "edbaa76081c81366",
+ "hidden": false,
+ "seed": 1,
+ "salted": false,
+ "cheat": false,
+ "controller": {
+  "path": "controller.py",
+  "sha256": "11b8a0270cadc2b5"
+ },
+ "counted": true,
+ "end_reason": "missions_done",
+ "error": null,
+ "ticks": 3147,
+ "missions": [
+  {
+   "type": "mission",
+   "id": "m1",
+   "from": "shop_a",
+   "to": "warehouse",
+   "t_start": 0.0,
+   "t_end": 156.3,
+   "t_arrival": 155.4,
+   "max_hold_dist": 0.0207,
+   "deadline_s": 200.6,
+   "reference_length_m": 174.271,
+   "delivered": true,
+   "reason": "delivered"
+  },
+  {
+   "type": "mission",
+   "id": "m2",
+   "from": "warehouse",
+   "to": "shop_a",
+   "t_start": 156.4,
+   "t_end": 314.6,
+   "t_arrival": 313.7,
+   "max_hold_dist": 0.0189,
+   "deadline_s": 200.7,
+   "reference_length_m": 174.317,
+   "delivered": true,
+   "reason": "delivered"
+  }
+ ],
+ "score": {
+  "total": 99.97,
+  "raw_sum": 99.974,
+  "fatal": false,
+  "fatal_t": null,
+  "counted": true,
+  "deliveries": 2,
+  "not_counted_blocks": [],
+  "blocks": {
+   "delivery": 40.0,
+   "efficiency": 14.974,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "max": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "missions": [
+   {
+    "id": "m1",
+    "delivered": true,
+    "t_start": 0.0,
+    "t_arrival": 155.4,
+    "time_s": 155.4,
+    "ratio": 0.9916,
+    "efficiency": 1.0,
+    "reason": "delivered"
+   },
+   {
+    "id": "m2",
+    "delivered": true,
+    "t_start": 156.4,
+    "t_arrival": 313.7,
+    "time_s": 157.3,
+    "ratio": 1.0034,
+    "efficiency": 0.9965545529122233,
+    "reason": "delivered"
+   }
+  ],
+  "episodes": [],
+  "top_episodes": []
+ },
+ "step_time_ms": {
+  "n": 3147,
+  "mean": 0.703,
+  "max": 2.929
+ },
+ "wall_time_s": 3.06,
+ "wall_limit_s": 600.0,
+ "sandbox_violations": [],
+ "controller_stderr_tail": "",
+ "log": "results/features/bypass_pallet.jsonl"
+}

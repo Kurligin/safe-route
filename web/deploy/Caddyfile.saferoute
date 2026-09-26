@@ -1,0 +1,21 @@
+# Блок сайта АРМ «Безопасный маршрут» для СИСТЕМНОГО Caddy сервера svo.
+#
+# Дописывается в конец /etc/caddy/Caddyfile вручную (после резервной копии), затем
+# `sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy`.
+# Сертификат Caddy получит сам, когда A-запись saferoute.kurligin.ru укажет на сервер.
+# Host передаётся как есть: бэкенд сверяет с ним Origin у запросов на запуск и сохранение.
+# X-Forwarded-For Caddy ставит сам: по нему бэкенд считает квоту заданий на посетителя.
+# CSP, nosniff, Referrer-Policy и кэш /assets/* выставляет бэкенд; sec_headers — сниппет сервера.
+
+saferoute.kurligin.ru, msk-hac.rapira-cloud.ru {
+	encode zstd gzip
+	import sec_headers
+	import accesslog saferoute
+
+	# прогон целиком — до мегабайта JSON, сохранение сценария проверяет симулятор (до минуты)
+	reverse_proxy 127.0.0.1:8098 {
+		transport http {
+			read_timeout 120s
+		}
+	}
+}

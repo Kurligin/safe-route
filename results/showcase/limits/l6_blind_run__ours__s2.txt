@@ -1,0 +1,4 @@
+scenario l6_blind_run seed 2 controller controller.py
+  2043 ticks, end missions_done, 2.0 s wall, step mean 0.663 ms max 2.58 ms
+  mission m1 warehouse->shop_b: delivered
+  score 99.51  delivery 40.0 efficiency 14.5 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

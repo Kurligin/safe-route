@@ -1,0 +1,50 @@
+# АРМ «Безопасный маршрут» на сервере svo.
+#
+# Раскладка на сервере (её создаёт deploy.sh):
+#   /opt/saferoute/web         — этот репозиторий
+#   /opt/saferoute/safe-route  — сдаваемый репозиторий
+#   /opt/saferoute/amrsim      — симулятор организаторов (без .venv, out/, teams/)
+# Запуск из /opt/saferoute/web:
+#   docker compose -p saferoute -f deploy/compose.svo.yml up -d --build
+# Локально пути к копиям задаются SUBMISSION_DIR и AMRSIM_DIR (относительно папки deploy/).
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      additional_contexts:
+        submission: ${SUBMISSION_DIR:-../../safe-route}
+        amrsim: ${AMRSIM_DIR:-../../amrsim}
+    image: saferoute-web:latest
+    # наружу сервис выпускает системный Caddy (deploy/Caddyfile.saferoute), контейнер слушает только localhost
+    ports:
+      - "127.0.0.1:${SAFEROUTE_PORT:-8098}:8000"
+    environment:
+      SAFEROUTE_ALLOWED_HOSTS: ${SAFEROUTE_ALLOWED_HOSTS:-msk-hac.rapira-cloud.ru,saferoute.rapira-cloud.ru,saferoute.kurligin.ru,127.0.0.1,localhost}
+      SAFEROUTE_PARALLEL: ${SAFEROUTE_PARALLEL:-2}
+      SAFEROUTE_READONLY: ${SAFEROUTE_READONLY:-0}
+      SAFEROUTE_MAX_QUEUED: ${SAFEROUTE_MAX_QUEUED:-60}
+      SAFEROUTE_MAX_PER_CLIENT: ${SAFEROUTE_MAX_PER_CLIENT:-12}
+      SAFEROUTE_MAX_RUNS_MB: ${SAFEROUTE_MAX_RUNS_MB:-3000}
+      # порт опубликован только на 127.0.0.1: к контейнеру ходит лишь системный Caddy,
+      # поэтому адрес посетителя берётся из X-Forwarded-For (квота заданий на адрес)
+      SAFEROUTE_TRUST_XFF: "1"
+    volumes:
+      - runs:/data/runs
+      - custom:/data/custom
+    # на общем сервере — 1,5 ядра и 2 ГБ; на выделенном задаются в deploy/.env
+    cpus: ${SAFEROUTE_CPUS:-1.5}
+    mem_limit: ${SAFEROUTE_MEM:-2g}
+    pids_limit: 256
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+volumes:
+  runs:
+  custom:

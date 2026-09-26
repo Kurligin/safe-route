@@ -1,0 +1,112 @@
+{
+ "schema": "amr-1.0",
+ "amrsim": "0.2.0",
+ "package_hash": "b28d6bad9e24a456",
+ "scenario": "l1_pallet_axis_drop",
+ "scenario_sha": "826a0f5cb46ed62b",
+ "hidden": false,
+ "seed": 1,
+ "salted": false,
+ "cheat": false,
+ "controller": {
+  "path": "controller.py",
+  "sha256": "11b8a0270cadc2b5"
+ },
+ "counted": true,
+ "end_reason": "missions_done",
+ "error": null,
+ "ticks": 4017,
+ "missions": [
+  {
+   "type": "mission",
+   "id": "m1",
+   "from": "warehouse",
+   "to": "shop_a",
+   "t_start": 0.0,
+   "t_end": 200.8,
+   "t_arrival": null,
+   "max_hold_dist": null,
+   "deadline_s": 200.7,
+   "reference_length_m": 174.317,
+   "delivered": false,
+   "reason": "timeout"
+  },
+  {
+   "type": "mission",
+   "id": "m2",
+   "from": "shop_a",
+   "to": "warehouse",
+   "t_start": 200.9,
+   "t_end": 401.6,
+   "t_arrival": null,
+   "max_hold_dist": null,
+   "deadline_s": 200.6,
+   "reference_length_m": 174.271,
+   "delivered": false,
+   "reason": "timeout"
+  }
+ ],
+ "score": {
+  "total": 0.0,
+  "raw_sum": 0.0,
+  "fatal": false,
+  "fatal_t": null,
+  "counted": true,
+  "deliveries": 0,
+  "not_counted_blocks": [
+   "safety",
+   "rules",
+   "pose"
+  ],
+  "blocks": {
+   "delivery": 0.0,
+   "efficiency": 0.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "max": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "missions": [
+   {
+    "id": "m1",
+    "delivered": false,
+    "t_start": 0.0,
+    "t_arrival": null,
+    "time_s": null,
+    "ratio": null,
+    "efficiency": 0.0,
+    "reason": "timeout"
+   },
+   {
+    "id": "m2",
+    "delivered": false,
+    "t_start": 200.9,
+    "t_arrival": null,
+    "time_s": null,
+    "ratio": null,
+    "efficiency": 0.0,
+    "reason": "timeout"
+   }
+  ],
+  "episodes": [],
+  "top_episodes": []
+ },
+ "step_time_ms": {
+  "n": 4017,
+  "mean": 0.966,
+  "max": 8.671
+ },
+ "wall_time_s": 5.013,
+ "wall_limit_s": 600.0,
+ "sandbox_violations": [],
+ "controller_stderr_tail": "",
+ "log": "results/showcase/limits/l1_pallet_axis_drop__ours__s1.jsonl"
+}

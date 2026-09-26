@@ -1,0 +1,4 @@
+scenario w7_pickup_first seed 1 controller controller.py
+  1990 ticks, end missions_done, 1.8 s wall, step mean 0.595 ms max 3.478 ms
+  mission m1 warehouse->shop_a: delivered
+  score 96.05  delivery 40.0 efficiency 11.1 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

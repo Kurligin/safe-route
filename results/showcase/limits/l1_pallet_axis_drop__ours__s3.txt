@@ -1,0 +1,5 @@
+scenario l1_pallet_axis_drop seed 3 controller controller.py
+  4017 ticks, end missions_done, 5.0 s wall, step mean 0.963 ms max 8.436 ms
+  mission m1 warehouse->shop_a: timeout
+  mission m2 shop_a->warehouse: timeout
+  score 0.00 (no delivery: safety, rules, pose not counted)  delivery 0.0 efficiency 0.0 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

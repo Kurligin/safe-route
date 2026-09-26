@@ -1,0 +1,5 @@
+scenario l3_person_turns_ahead seed 1 controller baseline/controller.py
+  2661 ticks, end missions_done, 1.9 s wall, step mean 0.389 ms max 1.094 ms
+  mission m1 warehouse->charger: timeout
+  mission m2 charger->shop_b: timeout
+  score 0.00 (no delivery: safety, rules, pose not counted)  delivery 0.0 efficiency 0.0 safety 24.8 rules 7.0 pose 1.0 collisions 0.0

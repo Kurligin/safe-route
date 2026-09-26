@@ -1,0 +1,108 @@
+{
+ "schema": "amr-1.0",
+ "amrsim": "0.2.0",
+ "package_hash": "b28d6bad9e24a456",
+ "scenario": "03_fog_snow",
+ "scenario_sha": "eecf84b9e721df5c",
+ "hidden": false,
+ "seed": 1,
+ "salted": false,
+ "cheat": false,
+ "controller": {
+  "path": "controller.py",
+  "sha256": "11b8a0270cadc2b5"
+ },
+ "counted": true,
+ "end_reason": "missions_done",
+ "error": null,
+ "ticks": 3004,
+ "missions": [
+  {
+   "type": "mission",
+   "id": "m1",
+   "from": "shop_a",
+   "to": "warehouse",
+   "t_start": 0.0,
+   "t_end": 151.6,
+   "t_arrival": 150.7,
+   "max_hold_dist": 0.0192,
+   "deadline_s": 200.6,
+   "reference_length_m": 174.271,
+   "delivered": true,
+   "reason": "delivered"
+  },
+  {
+   "type": "mission",
+   "id": "m2",
+   "from": "warehouse",
+   "to": "shop_a",
+   "t_start": 151.7,
+   "t_end": 300.3,
+   "t_arrival": 299.4,
+   "max_hold_dist": 0.0206,
+   "deadline_s": 200.7,
+   "reference_length_m": 174.317,
+   "delivered": true,
+   "reason": "delivered"
+  }
+ ],
+ "score": {
+  "total": 100.0,
+  "raw_sum": 100.0,
+  "fatal": false,
+  "fatal_t": null,
+  "counted": true,
+  "deliveries": 2,
+  "not_counted_blocks": [],
+  "blocks": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "max": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "missions": [
+   {
+    "id": "m1",
+    "delivered": true,
+    "t_start": 0.0,
+    "t_arrival": 150.7,
+    "time_s": 150.7,
+    "ratio": 0.9616,
+    "efficiency": 1.0,
+    "reason": "delivered"
+   },
+   {
+    "id": "m2",
+    "delivered": true,
+    "t_start": 151.7,
+    "t_arrival": 299.4,
+    "time_s": 147.7,
+    "ratio": 0.9422,
+    "efficiency": 1.0,
+    "reason": "delivered"
+   }
+  ],
+  "episodes": [],
+  "top_episodes": []
+ },
+ "step_time_ms": {
+  "n": 3004,
+  "mean": 0.624,
+  "max": 2.535
+ },
+ "wall_time_s": 2.757,
+ "wall_limit_s": 600.0,
+ "sandbox_violations": [],
+ "controller_stderr_tail": "",
+ "log": "results/logs/03_fog_snow__s1.jsonl"
+}

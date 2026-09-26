@@ -1,0 +1,5 @@
+scenario gen_040_CBW seed 1 controller controller.py
+  2065 ticks, end missions_done, 1.9 s wall, step mean 0.591 ms max 2.229 ms
+  mission m1 charger->shop_b: delivered
+  mission m2 shop_b->warehouse: delivered
+  score 100.00  delivery 40.0 efficiency 15.0 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

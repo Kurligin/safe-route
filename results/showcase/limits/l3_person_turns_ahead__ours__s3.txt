@@ -1,0 +1,5 @@
+scenario l3_person_turns_ahead seed 3 controller controller.py
+  2030 ticks, end missions_done, 2.1 s wall, step mean 0.687 ms max 2.3 ms
+  mission m1 warehouse->charger: delivered
+  mission m2 charger->shop_b: delivered
+  score 99.00  delivery 40.0 efficiency 15.0 safety 24.0 rules 10.0 pose 10.0 collisions 0.0

@@ -1,0 +1,5 @@
+scenario w3_inattentive_crowd seed 1 controller controller.py
+  1862 ticks, end missions_done, 1.7 s wall, step mean 0.591 ms max 2.373 ms
+  mission m1 warehouse->charger: delivered
+  mission m2 charger->shop_b: delivered
+  score 100.00  delivery 40.0 efficiency 15.0 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

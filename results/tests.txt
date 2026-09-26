@@ -1,0 +1,141 @@
+# Вывод автотестов. Python 3.10.21, numpy 2.2.6, без симулятора.
+# Трассировки RuntimeError: broken — ожидаемые: тесты проверяют, что исключение в шаге даёт безопасный стоп.
+
+$ python -m unittest discover tests -v
+test_far_from_axis_no_offset (test_bypass.BypassTest) ... ok
+test_no_object_no_offset (test_bypass.BypassTest) ... ok
+test_no_room_no_offset (test_bypass.BypassTest) ... ok
+test_offset_shape_is_s_shaped (test_bypass.BypassTest) ... ok
+test_pallet_on_axis_offset_clears_it (test_bypass.BypassTest) ... ok
+test_target_follows_the_offset (test_bypass.BypassTest) ... ok
+test_track_ahead_starts_at_the_platform (test_bypass.BypassTest) ... ok
+test_answer_is_finite (test_controller.ControllerTest) ... ok
+test_exception_gives_a_safe_stop_and_recovers (test_controller.ControllerTest) ... Traceback (most recent call last):
+  File "controller.py", line 70, in step
+    v, w, status, note = self._step(obs)
+  File "controller.py", line 140, in _step
+    per = self.perception.update((x, y, th), min(10.0, 3.0 * sigma))
+  File "tests/test_controller.py", line 54, in broken
+    raise RuntimeError("broken")
+RuntimeError: broken
+ok
+test_exception_while_rolling_reports_moving (test_controller.ControllerTest) ... Traceback (most recent call last):
+  File "controller.py", line 70, in step
+    v, w, status, note = self._step(obs)
+  File "controller.py", line 140, in _step
+    per = self.perception.update((x, y, th), min(10.0, 3.0 * sigma))
+  File "tests/test_controller.py", line 69, in broken
+    raise RuntimeError("broken")
+RuntimeError: broken
+ok
+test_malformed_observation_is_sanitized (test_controller.ControllerTest) ... ok
+test_nan_everywhere_does_not_leak (test_controller.ControllerTest) ... ok
+test_no_mission (test_controller.ControllerTest) ... ok
+test_status_follows_the_speed_model (test_controller.ControllerTest) ... ok
+test_clamped_far (test_geometry.DistanceFieldTest) ... ok
+test_gradient_points_away_from_wall (test_geometry.DistanceFieldTest) ... ok
+test_inside_negative (test_geometry.DistanceFieldTest) ... ok
+test_outside_distance (test_geometry.DistanceFieldTest) ... ok
+test_inside (test_geometry.PolygonTest) ... ok
+test_raycast_and_seg_dist (test_geometry.RayTest) ... ok
+test_range (test_geometry.WrapTest) ... ok
+test_gnss_jump_is_rejected (test_localization.LocalizerTest) ... ok
+test_nan_input_is_skipped (test_localization.LocalizerTest) ... ok
+test_pose_holds_on_a_straight_road (test_localization.LocalizerTest) ... ok
+test_scale_is_learned_from_the_commands (test_localization.LocalizerTest) ... ok
+test_controller_stops_with_status_lost (test_lost.LostTest) ... ok
+test_filter_declares_lost_and_recovers (test_lost.LostTest) ... ok
+test_empty_path (test_mission.MissionPathTest) ... ok
+test_path_ends_at_the_goal (test_mission.MissionPathTest) ... ok
+test_pickup_reachable_with_a_poor_pose (test_mission.MissionPathTest) ... ok
+test_arrival_conditions (test_mission.MissionTest) ... ok
+test_docking_phase_near_goal (test_mission.MissionTest) ... ok
+test_late_sigma_after_waiting (test_mission.MissionTest) ... ok
+test_new_id_resets_arrived_on_the_same_tick (test_mission.MissionTest) ... ok
+test_no_mission (test_mission.MissionTest) ... ok
+test_pickup_needs_margin_for_uncertain_pose (test_mission.MissionTest) ... ok
+test_start_at_pickup_goes_to_goal (test_mission.MissionTest) ... ok
+test_start_away_from_pickup_goes_there_first (test_mission.MissionTest) ... ok
+test_estop_released_at_rest (test_people.EstopTest) ... ok
+test_no_estop_for_a_person (test_people.EstopTest) ... ok
+test_normal_braking_is_enough (test_people.EstopTest) ... ok
+test_returns_inside_the_body_are_no_estop (test_people.EstopTest) ... ok
+test_sudden_object_at_speed (test_people.EstopTest) ... ok
+test_candidate_never_below_zero (test_people.ForecastTest) ... ok
+test_close_person_means_zero_or_crawl (test_people.ForecastTest) ... ok
+test_far_walker_at_us_allows_going_on_with_a_stop_later (test_people.ForecastTest) ... ok
+test_nobody_full_speed (test_people.ForecastTest) ... ok
+test_person_behind_walking_away_does_not_limit (test_people.ForecastTest) ... ok
+test_person_crossing_close_ahead_limits (test_people.ForecastTest) ... ok
+test_person_far_ahead_does_not_limit (test_people.ForecastTest) ... ok
+test_person_walking_at_us_stops_or_crawls (test_people.ForecastTest) ... ok
+test_young_track_assumed_to_approach (test_people.ForecastTest) ... ok
+test_corridor_stop_is_lifted_in_the_dock_only_for_objects (test_people.ObjectsTest) ... ok
+test_new_object_stop_is_not_a_person (test_people.ObjectsTest) ... ok
+test_no_backing_up_with_a_person_behind (test_people.ObjectsTest) ... ok
+test_object_beside_track_passes_with_clearance_cap (test_people.ObjectsTest) ... ok
+test_object_on_track_stops (test_people.ObjectsTest) ... ok
+test_people_stop_holds_up_to_the_goal (test_people.ObjectsTest) ... ok
+test_person_in_the_corridor_near_the_goal_still_stops (test_people.ObjectsTest) ... ok
+test_start_guard (test_people.ObjectsTest) ... ok
+test_raw_surface_triggers_estop_scattered_returns_do_not (test_people.SurfaceTest) ... ok
+test_limit_stops_at_exact_zero (test_people.YieldTest) ... ok
+test_standing_blob_never_seen_walking_is_ignored (test_people.YieldTest) ... ok
+test_standing_person_behind_is_ignored (test_people.YieldTest) ... ok
+test_standing_person_seen_walking_in_front (test_people.YieldTest) ... ok
+test_walking_away (test_people.YieldTest) ... ok
+test_walking_towards_us (test_people.YieldTest) ... ok
+test_yield_is_bounded (test_people.YieldTest) ... ok
+test_every_start_near_the_dock_ends_stopped_inside_tolerance (test_speed.DockLoopTest) ... ok
+test_brakes_before_the_zone (test_speed.ProfileTest) ... ok
+test_dock_approach_stops_inside_tolerance (test_speed.ProfileTest) ... ok
+test_dock_profile (test_speed.ProfileTest) ... ok
+test_reverse_after_overshoot (test_speed.ProfileTest) ... ok
+test_rotate_in_place_when_facing_away (test_speed.ProfileTest) ... ok
+test_speed_after_braking_is_legal_at_the_border (test_speed.ProfileTest) ... ok
+test_zone_allowance (test_speed.ProfileTest) ... ok
+test_route_to_pickup (test_speed.RouteTest) ... ok
+test_accelerate (test_speed.SpeedLawTest) ... ok
+test_brake (test_speed.SpeedLawTest) ... ok
+test_estop (test_speed.SpeedLawTest) ... ok
+test_reversal_passes_zero_first (test_speed.SpeedLawTest) ... ok
+test_stop_from_top_speed_takes_twelve_ticks (test_speed.SpeedLawTest) ... ok
+
+----------------------------------------------------------------------
+Ran 82 tests in 0.592s
+
+OK
+
+$ python -m unittest discover -s arm/tests -v
+test_keys (test_armcore.ControllerKeyTest) ... ok
+test_next_custom_id (test_armcore.CustomIdTest) ... ok
+test_valid_custom_id (test_armcore.CustomIdTest) ... ok
+test_flat_pair (test_armcore.FindRunsTest) ... ok
+test_log_without_report (test_armcore.FindRunsTest) ... ok
+test_missing_dir_is_skipped (test_armcore.FindRunsTest) ... ok
+test_results_layout_logs_and_reports_apart (test_armcore.FindRunsTest) ... ok
+test_same_name_in_two_folders_gets_unique_key (test_armcore.FindRunsTest) ... ok
+test_broken_log_raises (test_armcore.LoadRunTest) ... ok
+test_full_run (test_armcore.LoadRunTest) ... ok
+test_lite_run_has_no_ticks_and_map (test_armcore.LoadRunTest) ... ok
+test_our_run_from_results_has_no_prefix (test_armcore.LoadRunTest) ... ok
+test_without_report_score_comes_from_missions (test_armcore.LoadRunTest) ... ok
+test_load_scenario (test_armcore.ScenarioTest) ... ok
+test_groups (test_server.GroupTest) ... ok
+test_data_js (test_server.HttpTest) ... ok
+test_index_and_static (test_server.HttpTest) ... ok
+test_jobs_list (test_server.HttpTest) ... ok
+test_post_guards (test_server.HttpTest) ... ok
+test_scenario_with_map_and_raw (test_server.HttpTest) ... ok
+test_unknown_run_and_scenario (test_server.HttpTest) ... ok
+test_limits (test_server.LaunchTest) ... ok
+test_queue_and_duplicates (test_server.LaunchTest) ... ok
+test_readonly (test_server.LaunchTest) ... ok
+test_whole_request_or_nothing (test_server.LaunchTest) ... ok
+test_launch_refused (test_server.WithoutSimulatorTest) ... ok
+test_validation_needs_simulator (test_server.WithoutSimulatorTest) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.585s
+
+OK

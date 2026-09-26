@@ -1,0 +1,16 @@
+"""Fault injection for the demo: the team controller unchanged, but at T_INJECT its pose estimate is
+shifted by (DX, DY) as if the filter had taken a wrong fix. Shows the lost state and the recovery."""
+
+from team_controller import Controller as TeamController
+
+T_INJECT = 30.0
+DX, DY = 5.0, 2.0
+
+
+class Controller(TeamController):
+    def step(self, obs):
+        t = obs.get("t")
+        if isinstance(t, (int, float)) and abs(t - T_INJECT) < 0.05:
+            self.loc.xs[0] += DX
+            self.loc.xs[1] += DY
+        return super().step(obs)

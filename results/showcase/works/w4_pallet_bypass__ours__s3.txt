@@ -1,0 +1,5 @@
+scenario w4_pallet_bypass seed 3 controller controller.py
+  3150 ticks, end missions_done, 3.2 s wall, step mean 0.734 ms max 2.903 ms
+  mission m1 shop_a->warehouse: delivered
+  mission m2 warehouse->shop_a: delivered
+  score 99.95  delivery 40.0 efficiency 15.0 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

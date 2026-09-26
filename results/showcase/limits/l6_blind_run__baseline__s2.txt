@@ -1,0 +1,4 @@
+scenario l6_blind_run seed 2 controller baseline/controller.py
+  2522 ticks, end missions_done, 1.7 s wall, step mean 0.384 ms max 0.644 ms
+  mission m1 warehouse->shop_b: timeout
+  score 0.00 (no delivery: safety, rules, pose not counted)  delivery 0.0 efficiency 0.0 safety 25.0 rules 7.0 pose 4.0 collisions 0.0

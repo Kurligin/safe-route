@@ -1,0 +1,45 @@
+# Веб-сервис рабочего места оператора — локальный запуск (в составе репозитория safe-route: папка web/).
+#
+# Нужен архив симулятора организаторов amrsim-participants. По умолчанию он ищется рядом с
+# репозиторием (../../amrsim-participants относительно этой папки); другой путь — AMRSIM_DIR:
+#   cd web
+#   AMRSIM_DIR=/абсолютный/путь/amrsim-participants docker compose up --build -d
+#   открыть http://127.0.0.1:8098
+#   docker compose down        # остановить (прогоны и свои сценарии остаются в томах)
+#   docker compose down -v     # остановить и удалить тома
+
+name: saferoute
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      additional_contexts:
+        submission: ..  # корень репозитория: controller.py, scenarios/, results/
+        amrsim: ${AMRSIM_DIR:-../../amrsim-participants}
+    image: saferoute-web:local
+    ports:
+      - "127.0.0.1:${SAFEROUTE_PORT:-8098}:8000"
+    environment:
+      SAFEROUTE_ALLOWED_HOSTS: 127.0.0.1,localhost
+      SAFEROUTE_PARALLEL: ${SAFEROUTE_PARALLEL:-2}
+      SAFEROUTE_READONLY: ${SAFEROUTE_READONLY:-0}
+    volumes:
+      - runs:/data/runs
+      - custom:/data/custom
+    # два прогона одновременно: 2 ядра и 2 ГБ памяти хватает с запасом
+    cpus: ${SAFEROUTE_CPUS:-2}
+    mem_limit: ${SAFEROUTE_MEM:-2g}
+    pids_limit: 256
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+volumes:
+  runs:
+  custom:

@@ -1,0 +1,5 @@
+scenario 01_clear seed 1 controller controller.py
+  3046 ticks, end missions_done, 2.8 s wall, step mean 0.619 ms max 2.461 ms
+  mission m1 warehouse->shop_a: delivered
+  mission m2 shop_a->warehouse: delivered
+  score 100.00  delivery 40.0 efficiency 15.0 safety 25.0 rules 10.0 pose 10.0 collisions 0.0

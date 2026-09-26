@@ -1,0 +1,84 @@
+{
+ "schema": "amr-1.0",
+ "amrsim": "0.2.0",
+ "package_hash": "b28d6bad9e24a456",
+ "scenario": "l6_blind_run",
+ "scenario_sha": "59aa02a63e84d40c",
+ "hidden": false,
+ "seed": 3,
+ "salted": false,
+ "cheat": false,
+ "controller": {
+  "path": "controller.py",
+  "sha256": "11b8a0270cadc2b5"
+ },
+ "counted": true,
+ "end_reason": "missions_done",
+ "error": null,
+ "ticks": 1963,
+ "missions": [
+  {
+   "type": "mission",
+   "id": "m1",
+   "from": "warehouse",
+   "to": "shop_b",
+   "t_start": 0.0,
+   "t_end": 196.2,
+   "t_arrival": 195.3,
+   "max_hold_dist": 0.0225,
+   "deadline_s": 252.0,
+   "reference_length_m": 218.918,
+   "delivered": true,
+   "reason": "delivered"
+  }
+ ],
+ "score": {
+  "total": 100.0,
+  "raw_sum": 100.0,
+  "fatal": false,
+  "fatal_t": null,
+  "counted": true,
+  "deliveries": 1,
+  "not_counted_blocks": [],
+  "blocks": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "max": {
+   "delivery": 40.0,
+   "efficiency": 15.0,
+   "safety": 25.0,
+   "rules": 10.0,
+   "pose": 10.0,
+   "collisions": 0.0
+  },
+  "missions": [
+   {
+    "id": "m1",
+    "delivered": true,
+    "t_start": 0.0,
+    "t_arrival": 195.3,
+    "time_s": 195.3,
+    "ratio": 0.992,
+    "efficiency": 1.0,
+    "reason": "delivered"
+   }
+  ],
+  "episodes": [],
+  "top_episodes": []
+ },
+ "step_time_ms": {
+  "n": 1963,
+  "mean": 0.66,
+  "max": 2.591
+ },
+ "wall_time_s": 1.88,
+ "wall_limit_s": 600.0,
+ "sandbox_violations": [],
+ "controller_stderr_tail": "",
+ "log": null
+}
