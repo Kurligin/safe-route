@@ -1,0 +1,102 @@
+<!doctype html>
+<!--
+  Шапка README, 2048×768. Пересборка из корня репозитория:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars \
+    --force-device-scale-factor=1 --window-size=2048,768 --allow-file-access-from-files \
+    --screenshot=hero.png "file://$PWD/media/src/hero.html"
+  cwebp -q 90 hero.png -o media/hero.webp
+  Скриншот справа: media/screens/run.webp (рабочее место оператора, «Оживлённый двор», seed 1, t = 1:35).
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Безопасный маршрут</title>
+<style>
+  @font-face { font-family: "InterH"; font-weight: 400; src: local("Inter Regular"), url("fonts/Inter-Regular.ttf"); }
+  @font-face { font-family: "InterH"; font-weight: 500; src: local("Inter Medium"), url("fonts/Inter-Medium.ttf"); }
+  @font-face { font-family: "InterH"; font-weight: 600; src: local("Inter SemiBold"), url("fonts/Inter-SemiBold.ttf"); }
+  @font-face { font-family: "InterH"; font-weight: 700; src: local("Inter Bold"), url("fonts/Inter-Bold.ttf"); }
+  @font-face { font-family: "InterH"; font-weight: 800; src: local("Inter ExtraBold"), url("fonts/Inter-ExtraBold.ttf"); }
+
+  :root {
+    --bg: #16181d; --panel: #1c1f26; --line: #2a2e37;
+    --fg: #e8eaed; --fg-2: #9aa0aa; --accent: #4a8cff;
+    --ok: #5aa86f; --warn: #c9a227; --bad: #c4595a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 2048px; height: 768px; overflow: hidden; }
+  body {
+    position: relative;
+    background: var(--bg);
+    font-family: "InterH", "Inter", sans-serif;
+    color: var(--fg);
+  }
+  /* сетка как на карте рабочего места */
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--panel) 1px, transparent 1px),
+      linear-gradient(90deg, var(--panel) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 80%);
+  }
+  .glow {
+    position: absolute; left: 1080px; top: 40px; width: 900px; height: 700px;
+    background: radial-gradient(closest-side, rgba(74,140,255,.16), rgba(74,140,255,0));
+  }
+  .left { position: absolute; left: 110px; top: 0; width: 760px; height: 768px; }
+  .kicker {
+    position: absolute; top: 118px;
+    font-size: 21px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    position: absolute; top: 166px;
+    font-size: 112px; line-height: 108px; font-weight: 700; letter-spacing: -2px;
+  }
+  h1 span { color: var(--accent); }
+  .sub {
+    position: absolute; top: 420px; width: 740px;
+    font-size: 31px; line-height: 44px; font-weight: 400; color: var(--fg);
+  }
+  .foot {
+    position: absolute; top: 640px; display: flex; align-items: center; gap: 22px;
+    font-size: 20px; font-weight: 500; color: var(--fg-2); white-space: nowrap;
+  }
+  .bars { display: flex; gap: 14px; }
+  .bars i { display: block; width: 40px; height: 7px; border-radius: 4px; background: var(--accent); }
+  .bars i + i { background: var(--ok); }
+
+  .card {
+    position: absolute; left: 960px; top: 118px; width: 1020px; height: 490px;
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 8px rgba(28,31,38,.75);
+    background: var(--panel);
+  }
+  /* run.webp 1600×900: карта и правая панель, без шапки, плеера и списка прогонов */
+  .card img {
+    position: absolute; left: -202px; top: -34px;
+    width: 1222px; height: 687px;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+
+  <div class="left">
+    <div class="kicker">Беспилотная платформа без ГНСС</div>
+    <h1>Безопасный<br><span>маршрут</span></h1>
+    <div class="sub">Возит грузы между складом, цехами и зарядкой без спутника, в тумане и снеге и рядом с людьми.</div>
+    <div class="foot">
+      <div class="bars"><i></i><i></i></div>
+      <div>Кейс «Безопасный маршрут» · финал КосмоХакатона 2026, Москва</div>
+    </div>
+  </div>
+
+  <div class="card"><img src="../screens/run.webp" alt=""></div>
+
+  <div style="position:absolute;left:1846px;top:12px;width:142px;height:142px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0,#e3e8ef 35%,#a7b2c3 100%);box-shadow:0 8px 22px rgba(0,0,0,.5),inset 0 0 0 7px rgba(255,255,255,.35),inset 0 0 0 9px #8b98ac;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0B1E4A"><div style="font-weight:800;font-size:64px;line-height:58px">2</div><div style="font-weight:700;font-size:17px;letter-spacing:3px;margin-top:4px">МЕСТО</div></div>
+</body>
+</html>
